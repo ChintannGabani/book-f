@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-secondary: #10b981;
+}
+
+/* 
+  Force light/dark color-scheme based on class presence.
+*/
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+/* Base styles for smooth theme transition */
+body {
+  @apply transition-colors duration-200 ease-in-out bg-gray-50 text-gray-900;
+}
+
+:root.dark body {
+  @apply bg-gray-900 text-white;
+}
